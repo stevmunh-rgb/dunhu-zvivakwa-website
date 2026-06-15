@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunhu Zvivakwa | Smart Infrastructure & ICT Solutions</title>
+    <style>
+        /* Modern CSS Variables & Reset */
+        :root {
+            --primary: #1a365d;
+            --accent: #d69e2e;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --white: #ffffff;
+            --gray: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.95)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Section Global Settings */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .experience-badge {
+            background-color: var(--light);
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-bg {
+            background-color: var(--light);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+        }
+
+        .service-card li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .hub-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .hub-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .hub-card p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #a0aec0;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplification for small site without JS toggle */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Dunhu <span>Zvivakwa</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>Integrating Built Infrastructure with Digital Intelligence</h1>
+            <p>Leading construction engineering frameworks paired with future-ready enterprise ICT solutions across Southern Africa.</p>
+            <a href="#contact" class="btn">Partner With Us</a>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">Who We Are</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Cross-Border Infrastructure Experts</h3>
+                <p>Dunhu Zvivakwa is a premium, multi-disciplinary infrastructure development and technology firm operating seamlessly within <strong>Zimbabwe</strong> and <strong>South Africa</strong>[cite: 1, 2].</p>
+                <p>We address the modern demands of regional growth by ensuring physical developments are fully embedded with structural integrity and intelligent technical architecture from inception[cite: 1, 2].</p>
+                <div class="experience-badge">
+                    Led by two Executive Directors with an average of over 20 years of individual, high-level structural and technical execution experience across the SADC region[cite: 1, 2].
+                </div>
+            </div>
+            <div class="about-text" style="background: #f7fafc; padding: 30px; border-radius: 4px;">
+                <h3>Our Core Pillars</h3>
+                <p><strong>Structural Excellence:</strong> Uncompromising safety, durable craftsmanship, and strict compliance with FIDIC, JBCC, and NEC legal standards[cite: 1, 2].</p>
+                <p><strong>Technological Innovation:</strong> Transforming standard projects into smart facilities by layering enterprise cloud networks, security, and telemetry[cite: 1, 2].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <div class="services-bg" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Our Portfolios</h2>
+            <div class="services-grid">
+                
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <h3>General Construction</h3>
+                    <ul>
+                        <li>Civil Engineering & Earthworks[cite: 1, 2]</li>
+                        <li>Commercial Office Blocks & Logistics Warehouses[cite: 1, 2]</li>
+                        <li>Structural Reinforced Concrete[cite: 1, 2]</li>
+                        <li>Industrial Steel Fabrication & Infrastructure Updates[cite: 1, 2]</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <h3>Built Environment Consulting</h3>
+                    <ul>
+                        <li>End-to-End Project Management (PMBOK/PRINCE2)[cite: 1, 2]</li>
+                        <li>Quantity Surveying & Cost Engineering lifecycle[cite: 1, 2]</li>
+                        <li>Urban Planning & Regulatory Permissions[cite: 1, 2]</li>
+                        <li>Green Building Assessment & Energy Auditing[cite: 1, 2]</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <h3>ICT & Smart Infrastructure</h3>
+                    <ul>
+                        <li>Building Management Systems (BMS Automation)[cite: 1, 2]</li>
+                        <li>Structured Network Cabling & Localized Fiber Optics[cite: 1, 2]</li>
+                        <li>Enterprise ICT Server & Hybrid Cloud Integrations[cite: 1, 2]</li>
+                        <li>IoT Remote Telemetry & Resource Meter Sensors[cite: 1, 2]</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Contact Our Hubs</h2>
+        <div class="contact-grid">
+            
+            <!-- Zimbabwe -->
+            <div class="hub-card">
+                <h3>Zimbabwe Operations</h3>
+                <p><strong>Dunhu Zvivakwa (Pvt) Ltd</strong>[cite: 1, 2]</p>
+                <p>📍 Corporate District, Harare, Zimbabwe[cite: 1, 2]</p>
+                <p>📧 info@dunhuzvivakwa.com[cite: 1, 2]</p>
+                <p>🌐 www.dunhuzvivakwa.com[cite: 1, 2]</p>
+            </div>
+
+            <!-- South Africa -->
+            <div class="hub-card">
+                <h3>South Africa Operations</h3>
+                <p><strong>Dunhu Zvivakwa (Pty) Ltd</strong>[cite: 1, 2]</p>
+                <p>📍 Sandton Commercial Hub, Johannesburg, South Africa[cite: 1, 2]</p>
+                <p>📧 info@dunhuzvivakwa.com[cite: 1, 2]</p>
+                <p>🌐 www.dunhuzvivakwa.com[cite: 1, 2]</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Dunhu Zvivakwa. All Rights Reserved. Engineered for Growth, Built for the Future.[cite: 1, 2]</p>
+    </footer>
+
+</body>
+</html>
